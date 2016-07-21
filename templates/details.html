@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "flash.html" %}
+<div class="centered backgroundLogo">
+  {% if session['bm-dev'] %}
+  <h1>{{ suggestion.fields.summary }} (<a href="https://forge.blue-mind.net/jira/browse/{{ suggestion.key }}">{{ suggestion.key }}</a>)</h1>
+  {% else %}
+  <h1>{{ suggestion.fields.summary }} ({{ suggestion.key }})</h1>
+  {%endif%}
+  {% include "meta.html" %}
+  <pre>{{ suggestion.fields.description or '' }}</pre>
+  {% set plural = 's' if elements|length != 1 else ''%}
+  <h4>{{ elements|length }} comment{{ plural }} and/or attachment{{ plural }}</h4>
+
+  {% for el in elements %}
+  <hr/>
+
+  <h3>{{ el.author.displayName }}</h3>
+  <span class="timestamp">{{ el.created|datetime }}</span>
+
+    {% if el.body %}
+    {# This is a comment #}
+    <pre class="comment">{{ el.body }}</pre>
+    {% else %}
+    {# This is an attachment #}
+    <div class="element">
+    {% if el.thumbnail %}
+    <a href="{{ el.content }}" class="fancybox" title="{{ el.filename }}" rel="suggestion">
+      <img src="{{ el.thumbnail }}" alt="thumbnail"/>
+    </a>
+    <br/>
+    {{ el.filename }}
+    {% else %}
+    <a href="{{ el.content }}" class="attachment">
+      <img src="{{ url_for('static', filename='attachedFile.png') }}"/>
+      <u>{{ el.filename }}</u>
+    </a>
+    {% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% if g.name %}
+<div class="lightblue">
+  <div class="centered">
+    {% if suggestion.fields.status.name != 'Done' %}
+    <form method="post" enctype="multipart/form-data" id="commentform">
+      <h2>Add a comment/attachment</h2>
+      <textarea name="comment"></textarea>
+      <br/><br/>
+      <img src="{{ url_for('static', filename='addAttachment.png') }}"/>
+      Add an attachment:
+      <input type="file" name="file"/>
+      <br/><br/>
+      <button>Submit</button>
+      <br/><br/>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endblock %}

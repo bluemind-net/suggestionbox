@@ -1,0 +1,7 @@
+Flask
+crowd
+jira
+feedparser
+python-dateutil
+gunicorn
+Flask-Cache

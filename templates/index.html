@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "flash.html" %}
+<div id="activity-stream">
+  <h3>
+    <img src="{{ url_for('static', filename='activity.png') }}"/>
+    Activity stream
+  </h3>
+  {% for entry in feed %}
+  {% if 'changed the status to Accepted' in entry['title'] %}
+  <img src="{{ url_for('static', filename='accepted.png') }}"/>
+  {% elif 'voted for' in entry['title'] %}
+  <img src="{{ url_for('static', filename='vote.png') }}"/>
+  {% elif 'commented on' in entry['title'] %}
+  <img src="{{ url_for('static', filename='comment.png') }}"/>
+  {% elif 'created' in entry['title'] %}
+  <img src="{{ url_for('static', filename='created.png') }}"/>
+  {% else %}
+  <img src="{{ url_for('static', filename='done.png') }}"/>
+  {% endif %}
+  <p>
+  {{ entry['title']|safe }}
+  <span>{{ entry['updated']|datetime }}</span>
+  </p>
+  {% endfor %}
+</div>
+<div id="suggestions">
+  {% for suggestion in suggestions %}
+  <div>
+    <hr/>
+    <div class="centered sug-listing">
+      <h2>
+	<a href="details/{{ suggestion.key }}">
+	  {% if suggestion.fields.security.description == 'visible for Reporter and Blue Mind' %}
+	  [INTERNAL]
+	  {% endif %}
+	  {{ suggestion.fields.summary }}
+	</a>
+      </h2>
+      {% include "meta.html" %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% if suggestions|length == 50 %}
+<div id="max-results">
+  <div>  
+    <img src="{{ url_for('static', filename='maxResults.png') }}"/>
+    <span>
+      <h3>
+	You reached the max number of results:<br/>
+	please use a more specific search filter!
+      </h3>
+    </span>
+  </div>
+</div>
+{% endif %}
+{% if (session['search'] or session['component']) and g.name %}
+<div id="new-suggestion">
+  <h3>Can't find what you're looking for?</h3>
+  <a href="new">
+    <img src="{{ url_for('static', filename='newSuggestion.png') }}"/>
+  </a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% with messages = get_flashed_messages(with_categories=True) %}
+{% if messages or notice %}
+<div id="flashes">
+  {% if notice %}
+  <div class="centered">    
+    <div><img src="{{ url_for('static', filename='warning.png') }}"/></div>
+    <span>{{ notice|safe }}</span>
+  </div>        
+  {% endif %}
+  {% for category, message in messages %}
+  <div class="centered">
+    <div><img src="{{ url_for('static', filename=category+'.png') }}"/></div>
+    <span>{{ message }}</span>
+  </div>        
+  {% endfor %}	
+</div>
+{% endif %}
+{% endwith %}

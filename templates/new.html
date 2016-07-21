@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block pagebanner %}
+<div class="banner">
+  <img src="{{ url_for('static', filename='newSuggestionBanner.png') }}" alt="Suggest a new feature for development"/>
+</div>
+{% endblock %}
+
+{% block content %}
+{% if request.method == 'GET'%}
+{% set notice = "Please make sure your feature has not been suggested yet, because a single suggestion<br/>with many votes will stand better chances of acceptance than plenty of unpopular suggestions!" %}
+{% endif %}
+{% include "flash.html" %}
+<div class="centered">
+  <form method="post" class="new-suggestion">
+    <h2>Title</h2>
+    <input type="text" name="summary" value="{{ form['summary'] if form }}" class="input"/>
+    {% if session['bm-dev'] %}
+    <input type="checkbox" name="internal"></input> internal (visible to BlueMind only)
+    {% endif %}
+    <h2>Components</h2>
+    <ul class="components">
+      {% for c in components %}
+      <li>
+	<a id="complink-{{ c.id }}" href="javascript: toggleComponent({{ c.id }});" class="{{ 'checked' if form and 'component-' + c.id in form }}">{{ c.name }}</a>
+	<input type="checkbox" name="component-{{ c.id }}" {{ 'checked' if form and 'component-' + c.id in form }}></input>
+      </li>
+      {% endfor %}
+    </ul>
+    <h2>Description</h2>
+    <textarea name="description">{{ form['description'] if form }}</textarea>
+    <br/><br/>
+    <button>Submit</button>
+    <br/><br/>
+    You'll be able to upload attachments after the suggestion is created.
+    <br/><br/>
+  </form>
+</div>
+{% endblock %}

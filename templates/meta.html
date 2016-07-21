@@ -1,0 +1,48 @@
+{% if showreporter %}
+  <span class="timestamp">
+    suggested by {{ suggestion.fields.reporter.displayName }} on
+    {{ suggestion.fields.created|datetime }}
+  </span>
+{% endif %}
+  <div class="components">
+    {% for c in suggestion.fields.components %}
+    <a href="{{ url_for('index') }}?search=&component={{ c.id }}">{{ c.name }}</a>
+    {% endfor %}
+    <span>{{ suggestion.fields.customfield_10600|int }} comment{{ 's' if suggestion.fields.customfield_10600|int != 1 }}</span>
+  </div>
+  <div>
+    <div class="votes">{{ suggestion.fields.votes }} votes
+      <a href="javascript: {{ 'void(0);' if not g.name or suggestion.fields.reporter.name == g.name else '$("#form-' + suggestion.key + '").submit();'}}">
+	{% if suggestion.fields.votes.hasVoted and g.name %}	
+	<img src="{{ url_for('static', filename='heartfull.png') }}" alt="heart" class="heart"/>
+	{% else %}
+	<img src="{{ url_for('static', filename='heartempty.png') }}" alt="heart" class="heart"/>
+	{% endif %}
+	<span>
+	  {% if not g.name %}
+	  you need to log in before you can vote!
+	  {% elif suggestion.fields.votes.hasVoted %}
+	  remove your vote for this suggestion.
+	  {% elif suggestion.fields.reporter.name != g.name %}
+	  click to vote!
+	  {% else %}
+	  you can't vote for your own suggestions.
+	  {% endif %}
+	</span>
+      </a>
+    </div>
+    <form id="form-{{ suggestion.key }}" action="{{ url_for('details', key=suggestion.key) }}" method="post" class="voteform">
+      <input type="hidden" name="vote" value="{{ -1 if suggestion.fields.votes.hasVoted else 1 }}"/>
+    </form>    
+    {% if suggestion.fields.status.name != 'To Do' %}
+    <span class="done">status: {{ suggestion.fields.status.name }}!</span>
+    {% endif %}
+    {% if suggestion.fields.fixVersions %}
+    <br/>
+    <span class="fixversion">target versions: 
+      {% for f in suggestion.fields.fixVersions %}
+      {{ f }}{{ ', ' if not loop.last }}
+      {% endfor %}
+    </span>
+    {% endif %}
+  </div>

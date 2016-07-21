@@ -1,0 +1,441 @@
+* {    
+    padding: 0;
+    margin: 0;   
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: medium;
+}
+
+#activity-stream {
+    padding: 20px;
+    width: 300px;
+    float: right;
+    background-color: #f0f0f0;
+}
+
+#activity-stream h3 {
+    color: black;
+    font-style: normal;
+    font-family: "Roboto", sans-serif;
+    font-size: x-large;
+}
+
+#activity-stream h3 img {
+    margin-right: 15px;
+}
+
+#activity-stream p {    
+    margin-bottom: 10px;
+    display: inline-block;
+    float: left;
+    width: 260px;
+}
+
+#activity-stream img {
+    vertical-align: top;
+    margin-right: 15px;
+    float: left;
+}
+
+#activity-stream a {
+}
+
+#activity-stream a:not(.activity-item-user) {
+    color: #003f5b;
+    font-style: italic;
+    font-weight: 400;
+}
+
+#activity-stream  p > span {
+    display: block;
+    text-align: right;
+    color: grey;
+}
+
+#suggestions {
+    width: auto;
+    overflow: hidden;
+}
+
+#top, #logo, #main, #bottom, #search {
+    min-width: 1240px;
+}
+
+a img {outline : none;}
+
+img {border : 0;}
+
+a:link, a:visited, a:hover, a:active {
+				color: black;
+				text-decoration: none;
+				
+			    }
+
+pre {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    display: block;
+    width: 500px;
+    margin: 20px 0;
+    font-size: medium;
+    line-height: 140%;
+}
+
+button {
+    font-size: large;
+    background-color: #a7db00;
+    color: white;
+    border: 0;
+    padding: 5px 20px;
+    font-variant:  small-caps;
+    min-width: 200px;
+}
+
+form * {
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    vertical-align: sub;
+}
+
+select {    
+    border: 0;
+}
+
+hr {
+    color: grey;
+    background-color: grey;
+    border: none;
+    height: 1px;
+}
+
+h1 {
+    padding-top: 20px;
+    font-weight: 300;
+    font-size: xx-large;  
+}
+
+h2 {
+    padding-top: 20px;
+    font-weight: 300;
+    font-size: x-large;  
+}
+
+h3 {
+    font-style: italic;
+    font-family: georgia;
+    padding-top: 10px;
+    font-weight: 300;
+    font-size: large;
+    color: grey;
+    margin-bottom: 10px;
+}
+
+th {
+    color: white;
+    background-color: #44bfea;
+}
+
+#search {
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#search table {
+    margin: 0 auto;
+    font-size: small;
+    font-weight: 300;
+}
+
+.label {
+    font-size: x-large;
+    color: grey;
+    font-weight: 300;
+}
+
+.floatable {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    min-width: 0px !important;
+}
+
+.floatable h3 {
+    display: none;
+}
+
+#top {
+    padding: 10px;
+    color: white;
+    background-color: #9284b8;
+}
+
+#top a {
+    color: white;
+}
+
+img.logo {
+    vertical-align: -40%;
+    
+}
+
+.topright {
+    display: inline-block;
+    text-align: right;
+    width: 600px;
+    font-size: small !important;
+    font-variant: normal !important;
+}
+
+.topright img {
+    margin-left: 20px;
+}
+
+#top span {
+    font-variant:  small-caps;
+    font-weight: 500;
+    font-size: x-large;
+    margin-left: 15px;
+}
+
+#max-results {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+#max-results div {
+    display: table;
+    margin: 0 auto;
+}
+
+#max-results div * {
+    vertical-align: middle;
+    display: table-cell;
+    margin-right: 60px;
+    color: #4d4d4d;
+    font-size: x-large;
+    font-weight: 300;
+}
+
+#new-suggestion{
+    text-align: center;
+}
+
+#bottom{
+    color: white;
+    background-color: #1c4364;
+    box-shadow: 0px 500px 0px 500px #1c4364;
+    padding: 20px 0;
+    font-size: large;
+}
+
+#bottom span {
+    margin-left: 15px;
+}
+
+#contact {
+    font-size: small;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 50px;
+    margin-left: 150px;
+}
+
+#contact p:first-child {
+    font-size: large  ;
+    color: #44bfea;
+    font-style: italic;
+    font-family: georgia;
+}
+
+#contact img {
+    margin-right: 10px;
+}
+
+#contact p {
+    padding: 5px;
+}
+
+.banner {
+    padding-top: 20px;
+    text-align: center;
+    background-color: white;
+}
+
+#main {
+    background-color: #fff;
+    height: auto;
+    overflow: auto;
+}
+
+.centered {
+    width: 1200px;
+    margin: auto;
+    padding: 0px 20px;
+}
+
+.input {
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    font-size: large;
+}
+
+.lightblue, .lightblue td {
+    background-color: #c9c2dc;
+}
+
+textarea {
+    font-size: large;
+    width: 500px;
+    height: 150px;
+}
+
+.new-suggestion li {
+    display: inline-block;
+    height: 32px;
+    width: 200px;
+}
+
+.new-suggestion input[type=text] {
+    width: 400px;
+}
+
+.components {
+    margin-top: 5px;
+}
+
+.components input[type=checkbox] {
+    display: none;
+}
+
+.components a {
+    color: #44bfea;
+    display: inline-block;
+    padding: 5px;
+    background-color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #44bfea;
+}
+
+.components a.checked {
+    color: white;
+    background-color: #44bfea;    
+    border: 1px solid white;
+}
+
+
+.components span {
+    margin-left: 20px;
+}
+
+.sug-listing {
+    min-height: 100px;
+    padding-bottom: 10px;
+}
+
+.pair {
+    background-color: #f8f8f8;
+}
+
+.heart {
+    vertical-align: -3px;
+}
+
+.votes {
+    display: inline-block;
+    color: #44bfea;
+    font-size: x-large;
+}
+
+.votes img {
+    margin-left: 3px;
+}
+
+.heart + span {
+    display: none;
+}
+
+.heart:hover + span {
+    display: inline;
+    color: #44bfea;
+}
+
+.Done {
+    color: white;
+    font-weight: 500;
+    background-color: #a7db00;
+    padding: 5px 10px;
+}
+
+.element {
+    padding: 20px;
+}
+
+pre.comment {
+    padding: 20px;
+    background-color: white;
+    margin-left: 20px;
+}
+
+#flashes {
+    color: white;
+    background-color: #999999;
+    font-size: medium !important;
+    padding: 3px 0;    
+}
+
+#flashes div {
+    display: table;
+}
+
+#flashes div div:first-child {
+    width: 30px;
+}
+
+#flashes div div {
+    display: table-cell;
+    padding: 2px;
+}
+
+#flashes img {
+    vertical-align: -10%;
+}
+
+.attachment {
+    font-size: large;
+}
+
+.attachment img, #commentform img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.timestamp {
+    font-size: small;
+}
+
+.backgroundLogo {
+    background-image: url(backgroundLogo.png);
+    background-repeat: no-repeat;
+    background-position:70% 80px;
+    min-height: 350px;
+}
+
+.tip {
+    padding-left: 20px;
+    font-size: medium;
+}
