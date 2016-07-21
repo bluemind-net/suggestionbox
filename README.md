@@ -5,16 +5,16 @@ Box](https://community.bluemind.net/suggestions/)!
 
 We used to be overwhelmed by feature requests in our issue tracker
 (Jira). The Suggestion Box is our solution to this problem: encourge
-our users to vote and comment to other users' issues rather than
-duplicating them over and over in a specific website.
+our users to vote and comment to other users' issues in a dedicated
+website rather than duplicating them over and over in Jira.
 
 ### Issue storage
 
 The Suggestion Box is heavily coupled with Jira, and can be seen as a
-Jira front-end to handle tickets in a specific project (named "SB, by
-the way"). This is good enough for us, but we'll be glad to merge pull
-requests that will abstract the back-end and enable to store
-suggestions in other issue trackers, or just about any database.
+Jira front-end to handle tickets in a specific "SB" project. This is
+good enough for us, but we'll be glad to merge pull requests that will
+abstract the back-end and enable to store suggestions in other issue
+trackers, or just about any database.
 
 ### User management
 
