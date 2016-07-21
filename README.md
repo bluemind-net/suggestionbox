@@ -4,7 +4,7 @@ Box](https://community.bluemind.net/suggestions/)!
 ### Concept
 
 We used to be overwhelmed by feature requests in our issue tracker
-(Jira). The Suggestion Box is our solution to this problem: encourge
+(Jira). The Suggestion Box is our solution to this problem: encourage
 our users to vote and comment to other users' issues in a dedicated
 website rather than duplicating them over and over in Jira.
 
@@ -20,7 +20,7 @@ trackers, or just about any database.
 
 Any user may view suggestions, but one needs to be authenticated with
 Jira (actually Atlassian Crowd SSO) to vote or post. This is again
-good enought for us, but could/should be decoupled.
+good enough for us, but could/should be decoupled.
 
 ### Usage
 
